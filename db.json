@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "metro": [
+    {
+      "nombre": "Valle ruta 4",
+      "sector": "Valle",
+      "salida": "Estación playón de la marin",
+      "llegada": "Conocoto",
+      "maquinista": "Jared Valenzuela",
+      "detalles": "La ruta va por el antiguo camino a Conocoto",
+      "id": "fc8b9012-6f05-4841-a6f1-d96ba038e76c"
+    },
+    {
+      "nombre": "Quito ruta 16",
+      "sector": "Sur-norte",
+      "salida": "Quitumbe",
+      "llegada": "Carolina",
+      "maquinista": "Byron",
+      "detalles": "La ruta esta en avería",
+      "id": "43dca39f-3d45-464d-9388-f2203ccd6930"
+    }
+  ]
+}
