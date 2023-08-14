@@ -105,16 +105,19 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
         <input
           id="sector"
           type="text"
-          className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.sector ? "border-red-500" : ""}`}
+          className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.sector ? "border-red-500" : ""
+            }`}
           placeholder="sector de la ruta"
           {...register("sector", {
             required: true,
-            pattern: /^[A-Za-z\s]+$/ // Expresión regular para validar solo letras y espacios
+            pattern: /^[^\s].*[^\s]$/, // Expresión regular para validar no espacios al inicio ni al final
+            validate: value => typeof value === "string", // Validación adicional para asegurarse de que sea una cadena
+            setValueAs: value => value.trim() // Utiliza el método trim para quitar espacios al inicio y al final
           })}
         />
-        {errors.sector && <span className="text-red-500">Campo requerido y solo debe contener letras</span>}
+        {errors.sector && <span className="text-red-500">Campo requerido y sin espacios al inicio ni al final</span>}
       </div>
-
+      
       <div>
         {/* Campo Punto de Salida */}
         <label htmlFor="salida" className="text-gray-700 uppercase font-bold text-sm">
