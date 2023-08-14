@@ -105,12 +105,14 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
         <input
           id="sector"
           type="text"
-          className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.sector ? "border-red-500" : ""
-            }`}
+          className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.sector ? "border-red-500" : ""}`}
           placeholder="sector de la ruta"
-          {...register("sector", { required: true })}
+          {...register("sector", {
+            required: true,
+            pattern: /^[A-Za-z\s]+$/ // Expresión regular para validar solo letras y espacios
+          })}
         />
-        {errors.sector && <span className="text-red-500">Campo requerido</span>}
+        {errors.sector && <span className="text-red-500">Campo requerido y solo debe contener letras</span>}
       </div>
 
       <div>
