@@ -208,12 +208,35 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
         {errors.detalles && <span className="text-red-500">Campo requerido</span>}
       </div>
 
-      {/* Botón de Envío */}
-      <input
-        type="submit"
-        className="bg-sky-900 w-full p-3 text-white uppercase font-bold rounded-lg hover:bg-red-900 cursor-pointer transition-all"
-        value={idMetro ? "Actualizar ruta" : "Registrar ruta"}
-      />
+      <div className="flex gap-4 mt-4">
+        {/* Botón de Envío */}
+        <input
+          type="submit"
+          className="bg-sky-900 w-full p-3 text-white uppercase font-bold rounded-lg hover:bg-red-900 cursor-pointer transition-all"
+          value={idMetro ? "Actualizar ruta" : "Registrar ruta"}
+        />
+        <input
+          type="button"
+          className='bg-red-900 w-1/3 p-3 text-white uppercase font-bold rounded-lg hover:bg-red-700 cursor-pointer transition-all'
+          value={idMetro ? "Cancelar" : "Borrrar"}
+          onClick={() => {
+            idMetro ? (setIdMetro({
+              nombre: "",
+              sector: "",
+              salida: "",
+              llegada: "",
+              maquinista: "",
+              detalles: ""
+            })) : setIdMetro({
+              nombre: "",
+              sector: "",
+              salida: "",
+              llegada: "",
+              maquinista: "",
+              detalles: ""
+            })
+          }} />
+      </div>
     </form>
   );
 };
