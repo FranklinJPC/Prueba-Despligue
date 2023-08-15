@@ -92,7 +92,11 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.nombre ? "border-red-500" : ""
             }`}
           placeholder="nombre de la ruta"
-          {...register("nombre", { required: true })}
+          maxLength={20}
+          {...register("nombre", {
+            required: true,
+            setValueAs: value => value.trim()
+          })}
         />
         {errors.nombre && <span className="text-red-500">Campo requerido</span>}
       </div>
@@ -108,16 +112,17 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.sector ? "border-red-500" : ""
             }`}
           placeholder="sector de la ruta"
+          maxLength={30}
           {...register("sector", {
             required: true,
-            pattern: /^[^\s].*[^\s]$/, // Expresión regular para validar no espacios al inicio ni al final
-            validate: value => typeof value === "string", // Validación adicional para asegurarse de que sea una cadena
-            setValueAs: value => value.trim() // Utiliza el método trim para quitar espacios al inicio y al final
+            pattern: /^[A-Za-z\s]+$/,
+            validate: value => typeof value === "string",
+            setValueAs: value => value.trim()
           })}
         />
-        {errors.sector && <span className="text-red-500">Campo requerido y sin espacios al inicio ni al final</span>}
+        {errors.sector && <span className="text-red-500">Campo requerido y solo debe contener letras</span>}
       </div>
-      
+
       <div>
         {/* Campo Punto de Salida */}
         <label htmlFor="salida" className="text-gray-700 uppercase font-bold text-sm">
@@ -129,9 +134,15 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.salida ? "border-red-500" : ""
             }`}
           placeholder="punto de salida"
-          {...register("salida", { required: true })}
+          maxLength={30}
+          {...register("salida", {
+            required: true,
+            pattern: /^[A-Za-z\s]+$/,
+            validate: value => typeof value === "string",
+            setValueAs: value => value.trim()
+          })}
         />
-        {errors.salida && <span className="text-red-500">Campo requerido</span>}
+        {errors.salida && <span className="text-red-500">Campo requerido y solo debe contener letras</span>}
       </div>
 
       <div>
@@ -145,9 +156,15 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.llegada ? "border-red-500" : ""
             }`}
           placeholder="punto de llegada"
-          {...register("llegada", { required: true })}
+          maxLength={30}
+          {...register("llegada", {
+            required: true,
+            pattern: /^[A-Za-z\s]+$/,
+            validate: value => typeof value === "string",
+            setValueAs: value => value.trim()
+          })}
         />
-        {errors.llegada && <span className="text-red-500">Campo requerido</span>}
+        {errors.llegada && <span className="text-red-500">Campo requerido y solo debe contener letras</span>}
       </div>
 
       <div>
@@ -161,9 +178,15 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.maquinista ? "border-red-500" : ""
             }`}
           placeholder="nombre del maquinista"
-          {...register("maquinista", { required: true })}
+          maxLength={40}
+          {...register("maquinista", {
+            required: true,
+            pattern: /^[A-Za-z\s]+$/,
+            validate: value => typeof value === "string",
+            setValueAs: value => value.trim()
+          })}
         />
-        {errors.maquinista && <span className="text-red-500">Campo requerido</span>}
+        {errors.maquinista && <span className="text-red-500">Campo requerido y solo debe contener letras</span>}
       </div>
 
       <div>
@@ -176,7 +199,11 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           className={`border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md mb-5 ${errors.detalles ? "border-red-500" : ""
             }`}
           placeholder="detalles"
-          {...register("detalles", { required: true })}
+          maxLength={70}
+          {...register("detalles", {
+            required: true,
+            setValueAs: value => value.trim()
+          })}
         />
         {errors.detalles && <span className="text-red-500">Campo requerido</span>}
       </div>
