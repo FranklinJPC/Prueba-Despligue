@@ -115,7 +115,7 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           maxLength={30}
           {...register("sector", {
             required: true,
-            pattern: /^[A-Za-z\s]+$/,
+            pattern: /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/,
             validate: value => typeof value === "string",
             setValueAs: value => value.trim()
           })}
@@ -137,7 +137,7 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           maxLength={30}
           {...register("salida", {
             required: true,
-            pattern: /^[A-Za-z\s]+$/,
+            pattern: /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/,
             validate: value => typeof value === "string",
             setValueAs: value => value.trim()
           })}
@@ -159,7 +159,7 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           maxLength={30}
           {...register("llegada", {
             required: true,
-            pattern: /^[A-Za-z\s]+$/,
+            pattern: /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/,
             validate: value => typeof value === "string",
             setValueAs: value => value.trim()
           })}
@@ -181,7 +181,7 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
           maxLength={40}
           {...register("maquinista", {
             required: true,
-            pattern: /^[A-Za-z\s]+$/,
+            pattern: /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/,
             validate: value => typeof value === "string",
             setValueAs: value => value.trim()
           })}
