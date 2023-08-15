@@ -38,6 +38,19 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
     }
 
     try {
+      // Verificar si ya existe una ruta con el mismo nombre
+      const existingRouteResponse = await fetch(`https://64d05594ff953154bb78c9e6.mockapi.io/rutas?nombre=${encodeURIComponent(data.nombre)}`);
+      const existingRouteData = await existingRouteResponse.json();
+
+      if (existingRouteData.length > 0) {
+        // Mostrar un mensaje de error o realizar alguna acción si ya existe la ruta
+        Swal.fire(
+          'Error',
+          'Ya existe una ruta con el mismo nombre',
+          'error'
+        );
+        return;
+      }
       // Actualización de las rutas
       if (idMetro) {
         const url = `https://64d05594ff953154bb78c9e6.mockapi.io/rutas/${idMetro}`;
